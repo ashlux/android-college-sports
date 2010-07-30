@@ -16,6 +16,7 @@
     <gae.application.version>test</gae.application.version>
     <!-- port defaults to 8080 -->
     <gae.port>8080</gae.port>
+    <enunciate.version>1.20</enunciate.version>
   </properties>
 
   <profiles>
@@ -86,7 +87,7 @@
       <plugin>
         <groupId>org.codehaus.enunciate</groupId>
         <artifactId>maven-enunciate-spring-plugin</artifactId>
-        <version>1.20</version>
+        <version>${enunciate.version}</version>
         <executions>
           <execution>
             <goals>
@@ -94,6 +95,13 @@
             </goals>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.enunciate</groupId>
+            <artifactId>enunciate-rest</artifactId>
+            <version>${enunciate.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
@@ -119,6 +127,11 @@
       <artifactId>htmlparser</artifactId>
       <version>1.6</version>
     </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.5</version>
+    </dependency>
     <!-- asm and enunciate is for REST -->
     <dependency>
       <groupId>asm</groupId>
@@ -128,7 +141,17 @@
     <dependency>
       <groupId>org.codehaus.enunciate</groupId>
       <artifactId>enunciate-spring-app-rt</artifactId>
-      <version>1.20</version>
+      <version>${enunciate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.enunciate</groupId>
+      <artifactId>enunciate-rt</artifactId>
+      <version>${enunciate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.enunciate</groupId>
+      <artifactId>enunciate-rest-rt</artifactId>
+      <version>${enunciate.version}</version>
     </dependency>
 
     <!--

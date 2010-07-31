@@ -11,8 +11,9 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>sports-scores-feed-gae</module>
-    <module>domain</module>
+    <module>college-sports-domain</module>
+    <module>college-sports-feed-gae</module>
+<!--    <module>college-sports-android</module> -->
   </modules>
 
   <build>

@@ -6,18 +6,21 @@ import org.htmlparser.NodeFilter;
 import org.htmlparser.beans.FilterBean;
 import org.htmlparser.filters.HasAttributeFilter;
 import org.htmlparser.util.NodeList;
+import org.restlet.resource.Get;
+import org.restlet.resource.ServerResource;
 
-import javax.jws.WebService;
-import javax.ws.rs.Path;
+import javax.annotation.Resource;
 import java.util.LinkedList;
 import java.util.List;
 
-@Path( "/schedules" )
 public class ScheduleDaoImpl
+    extends ServerResource
     implements ScheduleDao
 {
     public Game[] getSchedule()
     {
+        System.out.println("PING!");
+
         List<Game> games = new LinkedList<Game>();
 
         final String url = "http://www.okstate.com/sports/m-basebl/sched/okst-m-basebl-sched.html";
@@ -48,7 +51,7 @@ public class ScheduleDaoImpl
             games.add( game );
         }
 
-        return games.toArray( new Game[]{ } );
+        return games.toArray( new Game[games.size()] );
     }
 
     private String formatScore( String timeOrResult )

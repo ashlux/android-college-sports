@@ -16,7 +16,6 @@
     <gae.application.version>test</gae.application.version>
     <!-- port defaults to 8080 -->
     <gae.port>8080</gae.port>
-    <enunciate.version>1.20</enunciate.version>
   </properties>
 
   <profiles>
@@ -84,25 +83,6 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.enunciate</groupId>
-        <artifactId>maven-enunciate-spring-plugin</artifactId>
-        <version>${enunciate.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>assemble</goal>
-            </goals>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.enunciate</groupId>
-            <artifactId>enunciate-rest</artifactId>
-            <version>${enunciate.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
     </plugins>
   </build>
 
@@ -123,6 +103,11 @@
       <version>0.9.22</version>
     </dependency>
     <dependency>
+      <groupId>com.basho.riak</groupId>
+      <artifactId>riak-client</artifactId>
+      <version>0.9.1</version>
+    </dependency>
+    <dependency>
       <groupId>org.htmlparser</groupId>
       <artifactId>htmlparser</artifactId>
       <version>1.6</version>
@@ -131,27 +116,6 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>2.5</version>
-    </dependency>
-    <!-- asm and enunciate is for REST -->
-    <dependency>
-      <groupId>asm</groupId>
-      <artifactId>asm</artifactId>
-      <version>3.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.enunciate</groupId>
-      <artifactId>enunciate-spring-app-rt</artifactId>
-      <version>${enunciate.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.enunciate</groupId>
-      <artifactId>enunciate-rt</artifactId>
-      <version>${enunciate.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.enunciate</groupId>
-      <artifactId>enunciate-rest-rt</artifactId>
-      <version>${enunciate.version}</version>
     </dependency>
 
     <!--
@@ -182,6 +146,28 @@
       <version>5.12.1</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- REST -->
+    <dependency>
+      <groupId>org.restlet.gae</groupId>
+      <artifactId>org.restlet</artifactId>
+      <version>2.0-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.gae</groupId>
+      <artifactId>org.restlet.ext.servlet</artifactId>
+      <version>2.0-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.gae</groupId>
+      <artifactId>org.restlet.ext.xml</artifactId>
+      <version>2.0-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.gae</groupId>
+      <artifactId>org.restlet.ext.net</artifactId>
+      <version>2.0-RC4</version>
+    </dependency>
   </dependencies>
 
   <repositories>
@@ -191,17 +177,29 @@
       <url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
       <releases>
         <checksumPolicy>ignore</checksumPolicy>
+        <updatePolicy>daily</updatePolicy>
       </releases>
     </repository>
     <repository>
       <id>google-maven-repo</id>
       <name>Google Maven Repository</name>
       <url>http://google-maven-repository.googlecode.com/svn/repository</url>
+      <releases>
+        <updatePolicy>daily</updatePolicy>
+      </releases>
     </repository>
     <repository>
       <id>java-net-repo</id>
       <name>Java.net Repository</name>
       <url>http://download.java.net/maven/2/</url>
+    </repository>
+    <repository>
+      <id>maven-restlet</id>
+      <name>Public online Restlet repository</name>
+      <url>http://maven.restlet.org</url>
+      <releases>
+        <updatePolicy>daily</updatePolicy>
+      </releases>
     </repository>
   </repositories>
 
@@ -212,6 +210,7 @@
       <url>http://maven-gae-plugin.googlecode.com/svn/repository/</url>
       <releases>
         <checksumPolicy>ignore</checksumPolicy>
+        <updatePolicy>daily</updatePolicy>
       </releases>
     </pluginRepository>
   </pluginRepositories>

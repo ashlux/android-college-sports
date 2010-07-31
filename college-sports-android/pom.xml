@@ -36,32 +36,38 @@
           <undeployBeforeDeploy>true</undeployBeforeDeploy>
         </configuration>
         <extensions>true</extensions>
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>android-undeploy</id>-->
-            <!--<phase>pre-clean</phase>-->
-            <!--<goals>-->
-              <!--<goal>undeploy</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-          <!--<execution>-->
-            <!--<id>android-deploy</id>-->
-            <!--<phase>install</phase>-->
-            <!--<goals>-->
-              <!--<goal>deploy</goal>-->
-            <!--</goals>-->
-          <!--</execution>-->
-        <!--</executions>-->
       </plugin>
     </plugins>
   </build>
 
   <dependencies>
     <dependency>
+      <groupId>com.ashlux.college-sports</groupId>
+      <artifactId>college-sports-rest-api</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.restlet</groupId>
+          <artifactId>org.restlet</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>android</artifactId>
       <version>2.2.1</version>
       <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.restlet.android</groupId>
+      <artifactId>org.restlet.ext.xml</artifactId>
+      <version>2.0-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.restlet.android</groupId>
+      <artifactId>org.restlet.ext.net</artifactId>
+      <version>2.0-RC4</version>
     </dependency>
   </dependencies>
 

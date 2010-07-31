@@ -3,11 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>com.ashlux.college-sports</groupId>
+    <artifactId>college-sports</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
   <!-- The Basics -->
-  <groupId>com.ashlux.sports-scores-feed</groupId>
-  <artifactId>sports-scores-feed</artifactId>
+  <groupId>com.ashlux.college-sports</groupId>
+  <artifactId>sports-scores-feed-gae</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <name>Sports Scores Feed</name>
+  <name>Sports Scores Feed GAE</name>
   <packaging>war</packaging>
 
   <properties>

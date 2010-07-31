@@ -13,7 +13,7 @@
   <modules>
     <module>college-sports-domain</module>
     <module>college-sports-feed-gae</module>
-<!--    <module>college-sports-android</module> -->
+    <module>college-sports-android</module>
   </modules>
 
   <build>

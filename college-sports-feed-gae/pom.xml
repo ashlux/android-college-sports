@@ -11,7 +11,7 @@
 
   <!-- The Basics -->
   <groupId>com.ashlux.college-sports</groupId>
-  <artifactId>sports-scores-feed-gae</artifactId>
+  <artifactId>college-sports-feed-gae</artifactId>
   <version>0.1-SNAPSHOT</version>
   <name>Sports Scores Feed GAE</name>
   <packaging>war</packaging>

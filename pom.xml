@@ -12,6 +12,7 @@
 
   <modules>
     <module>sports-scores-feed-gae</module>
+    <module>domain</module>
   </modules>
 
   <build>

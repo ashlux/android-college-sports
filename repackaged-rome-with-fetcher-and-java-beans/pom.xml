@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ashlux.college-sports</groupId>
+    <artifactId>college-sports</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.ashlux.repackaged</groupId>
+  <artifactId>repackaged-rome-with-fetcher-and-java-beans</artifactId>
+  <version>0.3</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask"
+                         classpath="${basedir}/jarjar-1.0.jar"/>
+
+                <jarjar destfile="${build.directory}/${build.finalName}.jar" update="true">
+                  <zipfileset src="beans.jar"/>
+                  <zipfileset src="rome-1.0.0.jar"/>
+                  <zipfileset src="rome-fetcher-1.0.0.jar"/>
+                  <rule pattern="com.sun.syndication.**" result="${groupId}.@0"/>
+                  <rule pattern="org.apache.harmony.beans.**" result="${groupId}.@0"/>
+                  <rule pattern="java.beans.**" result="${groupId}.@0"/>
+                  <!-- add fetcher.properties -->
+                  <!-- change rome.properties -->
+                </jarjar>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+
+</project>

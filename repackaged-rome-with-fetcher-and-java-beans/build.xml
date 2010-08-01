@@ -1,0 +1,12 @@
+<project>
+  <!-- Converts this project's .class files into .dex files -->
+  <target name="-jarjar" depends="compile">
+    <taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask"
+             classpath="jarjar-1.0.jar"/>
+    <jarjar jarfile="${out.absolute.dir}/repackagedclasses.jar">
+      <fileset dir="${out.classes.absolute.dir}"/>
+      <zipgroupfileset dir="${external.libs.absolute.dir}" includes="*.jar"/>
+      <rule pattern="javax.xml.**" result="com.mycompany.@1"/>
+    </jarjar>
+  </target>
+</project>

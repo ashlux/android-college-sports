@@ -11,7 +11,7 @@
 
   <groupId>com.ashlux.repackaged</groupId>
   <artifactId>repackaged-rome-with-fetcher-and-java-beans</artifactId>
-  <version>0.3</version>
+  <version>0.1-SNAPSHOT</version>
 
   <build>
     <plugins>
@@ -35,7 +35,6 @@
                   <rule pattern="com.sun.syndication.**" result="${groupId}.@0"/>
                   <rule pattern="org.apache.harmony.beans.**" result="${groupId}.@0"/>
                   <rule pattern="java.beans.**" result="${groupId}.@0"/>
-                  <!-- add fetcher.properties -->
                   <!-- change rome.properties -->
                 </jarjar>
               </tasks>

@@ -2,16 +2,13 @@ package com.ashlux.collegesports;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.ashlux.collegesports.news.NewsRetriever;
-import com.ashlux.collegesports.news.NewsRetrieverImpl;
-import com.ashlux.repackaged.com.sun.syndication.feed.synd.SyndEntry;
-import com.ashlux.repackaged.com.sun.syndication.feed.synd.SyndFeed;
-
-import java.util.List;
+import android.view.View;
+import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 public class MyActivity
     extends Activity
@@ -22,28 +19,10 @@ public class MyActivity
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.main );
+        requestWindowFeature( Window.FEATURE_NO_TITLE );
+        setContentView( createList( this ) );
 
-        NewsRetriever newsRetriever = new NewsRetrieverImpl();
-        SyndFeed syndFeed = newsRetriever.getMostRecentNews();
-        Log.v( TAG, syndFeed.getTitle() );
-        List<SyndEntry> entries = syndFeed.getEntries();
-        for ( SyndEntry entry : entries )
-        {
-            Log.v( TAG, "--------------------------------------------" );
-            Log.v( TAG, "--------------------------------------------" );
-            Log.v( TAG, "--------------------------------------------" );
-            Log.v( TAG,   "Entry : " + entry.getTitle() );
-            Log.v( TAG, "    URI : " + entry.getUri() );
-            Log.v( TAG, "Content :" + entry.getDescription().toString() );
-        }
 
-//        // Example client
-//        ClientResource cr = new ClientResource( "http://ashlux.no-ip.org:9999/rest/schedules" );
-////                  "http://sportsscoresfeed.appspot.com/rest/schedules");
-//        ScheduleDao scheduleDao = cr.wrap( ScheduleDao.class );
-//        Game[] games = scheduleDao.getSchedule();
-//        System.out.println( games.length );
     }
 
     @Override
@@ -65,5 +44,15 @@ public class MyActivity
             default:
                 return super.onOptionsItemSelected( item );
         }
+    }
+
+    private View createList( Activity activity )
+    {
+        LinearLayout mainPanel = new LinearLayout( activity );
+        ListView listView = new ListView( activity );
+        final FeedListAdapter feedListAdapter = new FeedListAdapter( activity );
+        listView.setAdapter( feedListAdapter );
+        mainPanel.addView( listView );
+        return mainPanel;
     }
 }

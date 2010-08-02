@@ -1,11 +1,11 @@
 package com.ashlux.collegesports.news;
 
 import com.ashlux.collegesports.exceptions.WebServiceRuntimeException;
-import com.ashlux.repackaged.com.sun.syndication.feed.synd.SyndFeed;
-import com.ashlux.repackaged.com.sun.syndication.fetcher.FeedFetcher;
-import com.ashlux.repackaged.com.sun.syndication.fetcher.FetcherException;
-import com.ashlux.repackaged.com.sun.syndication.fetcher.impl.HttpURLFeedFetcher;
-import com.ashlux.repackaged.com.sun.syndication.io.FeedException;
+import com.google.code.rome.android.repackaged.com.sun.syndication.feed.synd.SyndFeed;
+import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.FeedFetcher;
+import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.FetcherException;
+import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.impl.HttpURLFeedFetcher;
+import com.google.code.rome.android.repackaged.com.sun.syndication.io.FeedException;
 
 import java.io.IOException;
 import java.net.URL;

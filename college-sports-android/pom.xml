@@ -72,12 +72,19 @@
     </dependency>
 
     <!-- ATOM/RSS -->
-    <!-- Necessary because Android does not include java.beans -->
     <dependency>
-      <groupId>com.ashlux.repackaged</groupId>
-      <artifactId>repackaged-rome-with-fetcher-and-java-beans</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <groupId>com.google.code.android-rome-feed-reader</groupId>
+      <artifactId>android-rome-feed-reader</artifactId>
+      <version>1.0.0</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>android-rome-feed-reader-repository</id>
+      <name>Android ROME Feed Reader</name>
+      <url>http://android-rome-feed-reader.googlecode.com/svn/maven2/releases</url>
+    </repository>
+  </repositories>
 
 </project>

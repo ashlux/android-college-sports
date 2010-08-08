@@ -1,7 +1,8 @@
 package com.ashlux.collegesports;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,14 +11,14 @@ import android.view.View;
 import android.widget.ListView;
 import com.google.code.rome.android.repackaged.com.sun.syndication.feed.synd.SyndEntry;
 
-public class MyActivity
+public class FeedEntryListActivity
     extends ListActivity
 {
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setListAdapter( new FeedListAdapter( this ) );
+        setListAdapter( new FeedEntryListAdapter( this ) );
     }
 
     @Override
@@ -44,9 +45,8 @@ public class MyActivity
     @Override
     protected void onListItemClick( ListView l, View v, int position, long id )
     {
-        SyndEntry entry = (SyndEntry) l.getItemAtPosition( position );
-
-        new AlertDialog.Builder( this ).setTitle( "You clicked me!" ).setMessage( entry.getTitle() ).setCancelable(
-            true ).create().show();
+        final SyndEntry entry = (SyndEntry) l.getItemAtPosition( position );
+        final Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse( entry.getUri() ) );
+        startActivity( intent );
     }
 }

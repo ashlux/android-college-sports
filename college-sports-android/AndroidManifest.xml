@@ -3,7 +3,7 @@
           package="com.ashlux.collegesports">
   <application android:icon="@drawable/icon" android:label="OSU Central">
 
-    <activity android:name=".MyActivity">
+    <activity android:name=".FeedEntryListActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

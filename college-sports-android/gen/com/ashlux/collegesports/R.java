@@ -16,10 +16,10 @@ public final class R {
         public static final int osu_logo_transparent=0x7f020002;
     }
     public static final class id {
-        public static final int date=0x7f060001;
+        public static final int date=0x7f060000;
         public static final int quit=0x7f060003;
         public static final int summary=0x7f060002;
-        public static final int title=0x7f060000;
+        public static final int title=0x7f060001;
     }
     public static final class layout {
         public static final int feed_entry_row=0x7f030000;

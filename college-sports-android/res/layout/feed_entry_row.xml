@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <TextView android:id="@+id/title"/>
+  <TextView android:id="@+id/date"
+      android:textSize="10sp"
+      android:paddingBottom=""/>
 
-  <TextView android:id="@+id/date"/>
+  <TextView android:id="@+id/title"
+      android:textStyle="bold"
+      android:textSize="20sp"/>
 
-  <TextView android:id="@+id/summary"/>
+  <TextView android:id="@+id/summary"
+      android:textSize="15sp"/>
 
 </TableLayout>

@@ -13,5 +13,6 @@
   <groupId>com.ashlux.college-sports</groupId>
   <artifactId>college-sports-domain</artifactId>
   <version>0.1-SNAPSHOT</version>
+  <name>College Sports Domain</name>
   <packaging>jar</packaging>
 </project>

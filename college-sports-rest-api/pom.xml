@@ -13,6 +13,7 @@
   <groupId>com.ashlux.college-sports</groupId>
   <artifactId>college-sports-rest-api</artifactId>
   <version>0.1-SNAPSHOT</version>
+  <name>College Sports REST API</name>
   <packaging>jar</packaging>
 
   <dependencies>

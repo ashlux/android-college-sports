@@ -1,6 +1,7 @@
 package com.ashlux.collegesports;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,13 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class MyActivity
-    extends Activity
+    extends ListActivity
 {
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setContentView( createList( this ) );
+        setListAdapter( new FeedListAdapter(this) );
     }
 
     @Override
@@ -38,15 +39,5 @@ public class MyActivity
             default:
                 return super.onOptionsItemSelected( item );
         }
-    }
-
-    private View createList( Activity activity )
-    {
-        LinearLayout mainPanel = new LinearLayout( activity );
-        ListView listView = new ListView( activity );
-        final FeedListAdapter feedListAdapter = new FeedListAdapter( activity );
-        listView.setAdapter( feedListAdapter );
-        mainPanel.addView( listView );
-        return mainPanel;
     }
 }

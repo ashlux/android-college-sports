@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import com.ashlux.collegesports.news.NewsRetriever;
 import com.ashlux.collegesports.news.NewsRetrieverImpl;
@@ -43,63 +42,18 @@ public class FeedListAdapter
 
     public View getView( int index, View cellRenderer, ViewGroup viewGroup )
     {
-        NewsEntryCellView newsEntryCellView = (NewsEntryCellView) cellRenderer;
-
-        if ( cellRenderer == null )
-        {
-            newsEntryCellView = new NewsEntryCellView();
-        }
-
-        newsEntryCellView.display( index );
-        return newsEntryCellView;
+        final View view = context.getLayoutInflater().inflate( R.layout.feed_entry_row, null );
+        bindDataToView( view, (SyndEntry) feed.getEntries().get( index ) );
+        return view;
     }
 
-    private class NewsEntryCellView
-        extends TableLayout
+    private void bindDataToView( View view, SyndEntry entry )
     {
-        private TextView titleTextView;
-
-        private TextView dateTextView;
-
-        private TextView summaryTextView;
-
-        public NewsEntryCellView()
-        {
-            super( context );
-            createUI();
-        }
-
-        private void createUI()
-        {
-            setColumnShrinkable( 0, false );
-            setColumnStretchable( 0, false );
-            setColumnShrinkable( 1, false );
-            setColumnStretchable( 1, false );
-            setColumnShrinkable( 2, false );
-            setColumnStretchable( 2, true );
-
-            setPadding( 10, 10, 10, 10 );
-
-            titleTextView = new TextView( context );
-            titleTextView.setPadding( 10, 10, 10, 10 );
-            addView( titleTextView );
-
-            dateTextView = new TextView( context );
-            dateTextView.setPadding( 10, 10, 10, 10 );
-            addView( dateTextView );
-
-            summaryTextView = new TextView( context );
-            summaryTextView.setPadding( 10, 10, 10, 10 );
-            addView( summaryTextView );
-        }
-
-
-        public void display( int index )
-        {
-            SyndEntry entry = getItem( index );
-            titleTextView.setText( entry.getTitle() );
-            dateTextView.setText( entry.getPublishedDate().toString() );
-            summaryTextView.setText( entry.getDescription().getValue() );
-        }
+        final TextView titleView = (TextView) view.findViewById( R.id.title );
+        titleView.setText( entry.getTitle() );
+        final TextView dateView = (TextView) view.findViewById( R.id.date );
+        dateView.setText( entry.getPublishedDate().toString() );
+        final TextView summaryView = (TextView) view.findViewById( R.id.summary );
+        summaryView.setText( entry.getDescription().getValue() );
     }
 }

@@ -6,30 +6,24 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class MyActivity
     extends Activity
 {
-    private static final String TAG = "MyActivity";
-
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        requestWindowFeature( Window.FEATURE_NO_TITLE );
         setContentView( createList( this ) );
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu( Menu menu )
     {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate( R.menu.game_menu, menu );
+        inflater.inflate( R.menu.menu, menu );
         return true;
     }
 

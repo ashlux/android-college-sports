@@ -15,7 +15,6 @@
     <module>college-sports-feed-gae</module>
     <module>college-sports-android</module>
     <module>college-sports-rest-api</module>
-    <module>repackaged-rome-with-fetcher-and-java-beans</module>
   </modules>
 
   <build>
